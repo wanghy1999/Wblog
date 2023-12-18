@@ -9,10 +9,7 @@
           <asideContainer />
         </el-aside>
         <el-main>
-          <el-table :data="tableData" style="width: 100%" @row-click="clickData">
-            <el-table-column prop="title" label="" width="180" />
-            <el-table-column prop="content" label="" width="180" />
-          </el-table>
+          <mainContainer />
         </el-main>
       </el-container>
       <el-footer>
@@ -24,35 +21,9 @@
 
 <script lang="ts" setup>
 import pageHeader from '@/components/pageHeader.vue'
+import mainContainer from '@/components/mainContainer.vue'
 import asideContainer from '@/components/asideContainer.vue'
 import footerPagination from '@/components/footerPagination.vue'
-import router from '@/router'
-
-const tableData = [
-  {
-    title: 'CSS特效030：日蚀动画',
-    content:
-      'Spring Boot 的异步功能（Async）允许我们将某些任务异步执行，而不会阻塞主线程。这对于处理耗时的操作非常有用，如发送电子邮件、生成报表、调用外部 API 等。通过异步处理，我们可以释放主线程，让它继续处理其他请求，同时后台任务在后台线程中进行。这种方式可以显著提高应用程序的响应速度和并发性。'
-  },
-  {
-    title: '2023开放原子开发者大会',
-    content: '一切为了开发者'
-  },
-  {
-    title: 'Kafka快速实战与基本原理详解',
-    content:
-      'Kafka是最初由Linkedin公司开发，是一个分布式、支持分区的（partition）、多副本的（replica），基于zookeeper协调的分布式消息系统，它的最大的特性就是可以实时的处理大量数据以满足各种需求场景：'
-  }
-]
-
-const clickData = () => {
-  router.push({
-    name: 'article',
-    params: {
-      title: 'CSS特效030：日蚀动画'
-    }
-  })
-}
 </script>
 
 <style scoped lang="less">
